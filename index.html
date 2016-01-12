@@ -41,20 +41,43 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Data-science</h1>
-					<h3>et méthodes de hackers</h3>
+					<h1>test rezerzerze</h1>
+					<h3>et méthodes de herzrzeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeees</h3>
 					<p>
 						<small>par <a href="http://ants.builders">ants</a> / <a href="http://twitter.com/beingAnts">@beingAnts</a></small>
 					</p>
 				</section>
+
+				<section>
+					<section>
+						<h2>J'essaie un slide vers le bas</h2>
+							<ol>
+								<li>mes porjets vont être jolis</li>
+								<li>on couvre large, vous hackez le reste</li>
+								<li>support</li>
+							</ol>
+						</p>
+					</section>
+						<section>
+					<h1>ma page de titre </h1>
+					<h2> avec un titre en plue </h2>
+					<h3>et méthodes de presque hackers</h3>
+					<p>
+						<small> moi</small>
+					</p>
+</section>
+
+
+				</section>
+
 
 				<!-- Intro formation -->
 				<section>
 					<section>
 						<h2>Objectif</h2>
 						<p>
-							Vous rendre 
-							<span class="fragment highlight-blue">organisés</span>, 
+							Vous rendre
+							<span class="fragment highlight-blue">organisés</span>,
 							<span class="fragment highlight-blue">armés</span> et
 							<span class="fragment highlight-blue">autonomes</span>
 							pour apprendre de la <span class="fragment highlight-red">data-science</span> par la pratique.
@@ -373,7 +396,7 @@ git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short --all
 |/
 * 5bf345a 2016-01-11 | changed hello in bonjour [vallettea]
 * 2dc24bc 2016-01-11 | added hello to the file [vallettea]
-* c04b811 2016-01-11 | added empty file to project [vallettea]						
+* c04b811 2016-01-11 | added empty file to project [vallettea]
 						</code></pre>
 					</section>
 
@@ -441,7 +464,7 @@ git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short --all
 						<p>Remote indique le chemin entre ce repo vers un dépot github :</p>
 						<pre><code class="hljs" data-trim contenteditable>
 git remote add anthill https://github.com/anthill/training.git
-git push -u anthill master						
+git push -u anthill master
 						</code></pre>
 						<p>où <code>anthill</code> est le nom du dépot. Un repo peut avoir plusieur remote (voir fork).</p>
 					</section>
@@ -450,7 +473,7 @@ git push -u anthill master
 						<h2>push</h2>
 						<p>Pour synchroniser un repo local avec un remote, on utilise d'une part :</p>
 						<pre><code class="hljs" data-trim contenteditable>
-git push -u anthill master						
+git push -u anthill master
 						</code></pre>
 						<p>où <code>master</code> est le nom de la branche qu'on veut synchroniser. </p>
 						<p><code>push</code> s'utilise lorsque le repo local est en avance sur le remote.</p>
@@ -467,7 +490,7 @@ Total 101 (delta 17), reused 0 (delta 0)
 						<h2>pull</h2>
 						<p>Si le remote est en avance sur le repo local (quelqu'un a ajouté du code) on utilise :</p>
 						<pre><code class="hljs" data-trim contenteditable>
-git pull anthill master						
+git pull anthill master
 						</code></pre>
 						<p>où <code>master</code> est le nom de la branche qu'on veut synchroniser. </p>
 					</section>
@@ -485,7 +508,7 @@ git pull anthill master
 						<p>Un autre dévelopeur veut travailler sur votre code :</p>
 						<img width="700" float="right" data-src="img/github_clone.png">
 						<pre><code class="hljs" data-trim contenteditable>
-git clone https://github.com/anthill/training.git 						
+git clone https://github.com/anthill/training.git
 						</code></pre>
 						<p>va crée une copie locale de votre remote. </p>
 						<p><small>(que donne <code>git remote -v</code> ?)</small></p>
@@ -531,7 +554,7 @@ git clone https://github.com/anthill/training.git
 						</ul>
 					</section>
 
-					
+
 
 				</section>
 
@@ -575,12 +598,12 @@ git clone https://github.com/anthill/training.git
 			});
 
 			// to make iframe background clickable
-			Reveal.addEventListener('slidechanged', function(event) {               
+			Reveal.addEventListener('slidechanged', function(event) {
 			     if($(event.currentSlide).attr('data-background-iframe')) {
 			          $('.reveal > .backgrounds').css('z-index', 1);
 			     } else {
 			          $('.reveal > .backgrounds').css('z-index', 0);
-			     }                  
+			     }
 			});
 
 		</script>
