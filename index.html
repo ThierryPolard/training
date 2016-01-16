@@ -883,10 +883,10 @@ div * {...}
 div p a {...}
 div.maClasse {...}
 div a#monId {...}
-ul > li {...}
-div[class=”maClasse”] {...}
-div + span {...}
-a[class~=”plop”] {...}
+ul > li {...} // all li directly child from ul
+div[class=”maClasse”] {...} // all div that have only this class
+div + span {...} // span that is adjacent to div
+a[class~=”plop”] {...} // all div that have at least this class
 						</code></pre>
 					</section>
 
@@ -897,7 +897,6 @@ a:link {...}
 a:visited {...}
 a:hover {...}
 div:only-child {...}
-div:only-of-type {...}
 div:first-child {...}
 div:last-child {...}
 div:nth-child(an+b) {...}
@@ -906,12 +905,26 @@ div:nth-last-child(an+b) {...}
 						</code></pre>
 					</section>
 
-<!-- 					<section>
+					<section>
+						<h3>Pseudo-éléments</h3>
+						<pre><code class="css" data-trim contenteditable>
+
+p::first-line // first line of the paragraph even in responsive mode
+p::first-letter // first letter: usefull for typography of the first letter
+p::before // add content inside the p before p's content
+p::after // add content inside the p after p's content
+						</code></pre>
+					</section>
+
+					<section>
 						<h3>Poids des sélécteurs</h3>
 					</section>
 
 					<section>
 						<h3>display</h3>
+						<p>By default, block takes all the width it can independent of the content, whereas an inline will have a width that depend on the content.
+
+inline-block has both property.</p>
 					</section>
 
 					<section>
@@ -920,7 +933,7 @@ div:nth-last-child(an+b) {...}
 
 					<section>
 						<h3>les unités de positionnement</h3>
-					</section> -->
+					</section>
 
 					<section>
 						<h3>Arborescence d'un projet web :</h3>

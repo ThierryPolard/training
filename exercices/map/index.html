@@ -1,66 +1,69 @@
 <!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Une page d'exemple.</title>
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Droid+Sans|Yanone+Kaffeesatz:700' rel='stylesheet' type='text/css'>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+    <link rel="stylesheet" href="http://openlayers.org/en/v3.12.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script src="http://openlayers.org/en/v3.12.1/build/ol.js" type="text/javascript"></script>
+    <title>OpenLayers 3 example</title>
+  </head>
+  <body>
+    <h2>My Map</h2>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
 
-		<!-- leaflet -->
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+      var points = [
+		{
+			"name": "place1",
+			"lon": -0.5309455,
+			"lat": 47.2655527
+		},
+		{
+			"name": "place2",
+			"lon": -0.7610869,
+			"lat": 44.600453
+		},
+		{
+			"name": "place3",
+			"lon": -0.5877654,
+			"lat": 44.807913
+		}
 
-		<link rel="stylesheet" type="text/css" href="base.css">
-		
-		<script defer src="map.js"></script>
-
-	</head>
-
-		<body>
-		<header>
-			<h1><strong>MyMap</strong> for you</h1>
-		</header>
-		<nav>
-			<a href="">about</a><!--
-		--><a href="">demo</a><!--
-		--><a href="">story</a>
-		</nav>
-
-		<article>
-
-			<section>
-				<header>
-					<h2>What is this all about ?</h2>
-				</header>
-
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-			</section>
-
-
-			<div id="map" class="map map-home" style="height: 300px; margin-top: 50px"></div>
+	];
 
 
-		</article>
+	var features = points.map(function(point){
+		return new ol.Feature({
+		  geometry: new ol.geom.Point(
+		  	ol.proj.transform([point.lon, point.lat], 'EPSG:4326', 'EPSG:3857')
+		  ),
+		  name: point.name
+		});
+	});
+ 
 
-		<footer>
-			<div>
-				<section>
-					<header>
-						<h3>blog</h3>
-					</header>
-					<p>Some other text saying nothing.</strong></p>
-				</section><!--
+	var map = new ol.Map({
+		target: 'map',
+		layers: [
+			new ol.layer.Tile({
+				source: new ol.source.MapQuest({layer: 'sat'})
+			}),
+			new ol.layer.Vector({
+	            source: new ol.source.Vector({ features: features })
+	          })
+		],
+		view: new ol.View({
+		center: ol.proj.fromLonLat([37.41, 8.82]),
+		zoom: 4
+		})
+	});
+	
 
-				--><section>
-					<header>
-						<h3>Twitter</h3>
-					</header>
-					<p>RT @vallettea for more of these fun exercices...</p>
-				</section>
-			</div>
-		</footer>
-
-	</body>
-
+    </script>
+  </body>
 </html>
