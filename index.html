@@ -16,10 +16,11 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
-		<link rel="stylesheet" href="css/ants.css">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/ants.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -28,6 +29,13 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+			function changeFont(){
+				console.log('changing color')
+				document.getElementById('eventExample').classList.toggle('color');
+			}
+
+			document.addEventListener('click', changeFont);
 		</script>
 
 		<!--[if lt IE 9]>
@@ -1252,6 +1260,27 @@ window.dump
 window.scrollTo
 						</code></pre>
 					</section>
+
+					<section id='eventExample'>
+						<h3>Les Evènements DOM</h3>
+
+						<ul>
+							<li>click</li>
+							<li>mouseUp</li>
+							<li>mouseDown</li>
+							<li>mouseMove</li>
+							<li>mouseEnter</li>
+							<li>mouseLeave</li>
+							<li>...</li>
+						</ul>
+						<pre><code class="hsjs" data-trim contenteditable>
+<div onclick='changeFont();'></div> // don't do this
+
+myDiv.addEventListener('click', function(){ // after myDiv = document.getElementById();
+	doSomething();
+});
+						</code></pre>
+					</section>
 					
 
 					<section>
@@ -1308,6 +1337,41 @@ Promise.all([fP, gP, hP])
 					<!-- Les modules -->
 					<section>
 						<h2>Modules</h2>
+						<pre><code class="hljs" data-trim contenteditable>
+// export
+module.exports = 9.81; // dans gravite.js
+module.exports = function(masse){ // dans appliquerG.js 
+	return 9.81 * masse; 
+};
+
+// import
+var gravite = require('./gravite.js'); // my own stuff
+var appliquerGravite = require('./appliquerG.js');
+
+var moment = require('moment'); // npm package
+						</code></pre>
+
+					</section>
+
+					<section>
+						<h3>Exporter plusieurs variables</h3>
+						<pre><code class="hljs" data-trim contenteditable>
+// export
+module.exports = { // dans math.js
+	sum: function (a, b){ a + b },
+	substract: function (a, b) { a - b }
+}
+
+// import
+var additioner = require('./math.js').sum;
+var soustraire = require('./math.js').substract;
+// ou
+var math = require('./math.js');
+
+math.sum(3, 4);
+math.substract(31, 22);
+						</code></pre>
+
 					</section>
 
 					<!-- NPM -->
