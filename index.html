@@ -1214,23 +1214,21 @@ function ajoute(x, y) {
 
 						<p>Lorsqu'une page html est lue, <code>window</code> et <code>document</code></p>
 						<pre><code class="hsjs" data-trim contenteditable>
-<!-- 
-<html>
-  <head>
-    <script>
-       window.onload = function() {
-
-         var heading = document.createElement("h1");
-         var heading_text = document.createTextNode("gros titre!");
-         heading.appendChild(heading_text);
-         document.body.appendChild(heading);
-      }
-    </script>
-  </head>
-  <body>
-  </body>
-</html> 
--->
+&lt;!doctype html>
+&lt;html>
+  &lt;head>
+    &lt;meta charset="utf-8">
+    &lt;script>
+    "use strict";
+    document.addEventListener('DOMContentLoaded', function() {
+        var heading = document.createElement("h1");
+        heading.textContent = "gros titre!";
+        document.body.appendChild(heading);
+    })
+    &lt;/script>
+  &lt;/head>
+  &lt;body>&lt;/body>
+&lt;/html> 
 						</code></pre>
 					</section>
 
